@@ -5,3 +5,5 @@
 to solve such a problem. Here is my example solution:</p>
 
 ![Preview](/preview.png?raw=true "Preview")
+
+Check out a live preview on <a href="https://codepen.io/dguinn/pen/bLJOXV">Codepen</a>!
