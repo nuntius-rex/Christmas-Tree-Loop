@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Christmas Tree Loop - By Dan Guinn</title>
+    <style media="screen">
+      body{
+        background-color: #fff;
+        color:green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Christmas Tree Loop</h1>
+    <p>This example was inspired by an example provided in Eloquent JavaScript called
+    <a href="http://eloquentjavascript.net/02_program_structure.html#i_umoXp9u0e7">"Looping a Triangle"</a>.</p>
+    <p>I used this illustration to help my students see some of the problem solving process one might go through
+   to solve such a problem. Here is my example solution:</p>
+    <div id="ChristmasTree"></div>
+
+    <script type="text/javascript">
+
+
+        var ChristmasTree = document.getElementById("ChristmasTree");
+        var hash="#";
+        var output="";
+        var limit=14; //Must be even number
+        var middle=limit/2;
+        for(i=0; i<middle; i++){
+          for(j=0; j<limit; j++){
+            if(j==middle){
+        		if(i==0){
+        			output +="*";
+        		}else{
+        			output +="#";
+        		}
+            }else{
+
+              if(j>=(middle-i) && j<=(middle+i) ){
+                  output +="#";
+              }else{
+                  output +="&nbsp;&nbsp;";
+              }
+            }
+
+          }
+          //console.log(output);
+          ChristmasTree.innerHTML +=output + "<br>";
+          output=""; //reset
+        }
+
+    </script>
+  </body>
+</html>
