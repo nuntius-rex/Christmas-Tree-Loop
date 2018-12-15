@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Christmas Tree Loop - By Dan Guinn</title>
+    <style media="screen">
+      body{
+        background-color: #fff;
+        color:green;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="ChristmasTree"></div>
+
+    <script type="text/javascript">
+
+        var ChristmasTreeContainer = document.getElementById("ChristmasTree");
+
+        var christmasTree=(function(){
+
+          output = "Oh Christmas Tree \r\n";
+          var hash="#";
+          var output="";
+          var limit=30; //Must be even number
+          var middle=limit/2;
+          var lightCount=0;
+
+          for(i=0; i<middle; i++){
+            for(j=0; j<limit; j++){
+              var rnum = Math.floor(Math.random()*(j+1));
+              if(j==middle){
+                  if(i==0){
+                    output +="*";
+                  }else{
+                    if(rnum==i || rnum==j){
+                      output+="o";
+                    }else{
+                      output+="#";
+                    }
+                  }
+              }else{
+                if(j>=(middle-i) && j<=(middle+i) ){
+                    if(rnum==i || rnum==j){
+                      output+="o";
+                    }else{
+                      output+="#";
+                    }
+                }else{
+                    output +="&nbsp;&nbsp;";
+                }
+              }
+            }
+
+            ChristmasTreeContainer.innerHTML +=output + "<br>";
+              output=""; //reset
+          }
+
+          //Trunk and presents:
+          for(i=0;i<limit; i++){
+            if(i==(middle-4)){
+              output +="|&nbsp;&nbsp;&nbsp;|";
+            }else{
+              if(i==limit/3-5){
+              	output +="[&nbsp;&nbsp;&nbsp;]";
+              }else{
+              	output +="&nbsp;&nbsp;";
+              }
+            }
+            if(i==(middle+2)){
+            	output +="[&nbsp;&nbsp;&nbsp;]";
+            }
+
+          }
+          ChristmasTreeContainer.innerHTML +=output + "<br>";
+
+        });
+
+        i=0;
+        christmasTree();
+        ChristmasTreeContainer.innerHTML="";
+        setInterval(() => {
+          i = (i > 3) ? 0 : i;
+          ChristmasTreeContainer.innerHTML="";
+          christmasTree();
+          i++;
+        }, 1500);
+
+    </script>
+
+  </body>
+</html>
